@@ -1,0 +1,41 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import SectionContainer from "./SectionContainer.astro";
+
+const laboralExperience = [
+  {
+    date: "Enero 2024",
+    title: "Freelance - Página web para la corporación CORPOREDDEH ",
+    description:
+      "Desarrollo de una página web de contenido dinamico para la corporación CORPOREDDEH de DDHH. La pagina se desarrollo con React y lo servicios de Firestore. Incuye autenticación, almacenamiento de archivos y base de datos.",
+    link: "https://corporeddeh.org",
+  },
+  {
+    date: "Junio 2023",
+    title: "Freelance - Página web para hotel Alemar en Costa Rica",
+    description:
+      "Página web que registra las reservaciones de los clientes, con un sistema de autenticación y base de datos. La página se desarrollo con React y lo servicios de Firestore.",
+    link: "https://alemarapp.netlify.app",
+  },
+];
+---
+
+<SectionContainer>
+  <h1 class="text-2xl mb-3">Experiencia laboral</h1>
+
+  <ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+      laboralExperience.map(({ title, date, description, link }) => (
+        <li class="mb-10 ms-4">
+          <ExperienceItem
+            title={title}
+            date={date}
+            description={description}
+            link={link}
+          />
+        </li>
+      ))
+    }
+    <li class="mb-10 ms-4"></li>
+  </ol>
+</SectionContainer>
