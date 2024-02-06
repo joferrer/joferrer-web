@@ -66,13 +66,13 @@ const navItems = [
     navBar?.classList.toggle("hidden");
   };
 
-  const resizeEvent = () => {
-    const closeEvent = !menuBtn?.checkVisibility();
+  const resizeEvent = (event: { matches: any }) => {
+    const closeEvent = event.matches;
     console.log(closeEvent);
-
     if (closeEvent) {
-      navBar?.classList.remove("hidden");
+      return navBar?.classList.remove("hidden");
     }
+    navBar?.classList.add("hidden");
   };
 
   const openEvent = () => {
@@ -81,7 +81,8 @@ const navItems = [
   };
 
   const resetTheVisibilityOfNavBar = () => {
-    window?.addEventListener("resize", resizeEvent);
+    const desktopMediaQuery = window.matchMedia("(min-width: 640px)");
+    desktopMediaQuery?.addEventListener("change", resizeEvent);
   };
 
   openEvent();
