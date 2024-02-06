@@ -1,0 +1,91 @@
+---
+import MenuIcon from "../icons/Menu.astro";
+
+const navItems = [
+  {
+    name: "Introducción",
+    url: "#",
+    label: "",
+  },
+  {
+    name: "Experiencia",
+    url: "#",
+    label: "",
+  },
+  {
+    name: "Proyectos",
+    url: "#",
+    label: "",
+  },
+  {
+    name: "Educación",
+    url: "#",
+    label: "",
+  },
+  {
+    name: "Habilidades",
+    url: "#",
+    label: "",
+  },
+
+  {
+    name: "Contacto",
+    url: "#",
+    label: "",
+  },
+];
+---
+
+<header class="fixed top-0 flex w-full justify-center mt-5 mx-auto">
+  <button
+    aria-label="Open Menu"
+    aria-expanded="false"
+    aria-controls="menu-items"
+    class:list={[
+      "hamburger-menu focus-outline",
+      "fixed right-0 w-10 h-10 mx-2 flex items-center justify-center sm:hidden hover:bg-cyan-500/75 rounded-full",
+    ]}
+    ><MenuIcon class="w-24 h-24" />
+  </button>
+  <nav id="nav-bar" class="flex sm:flex-row">
+    {
+      navItems.map((item) => (
+        <a href={item.url} class:list={["px-2 py-2 hover:text-cyan-600"]}>
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.querySelector(".hamburger-menu");
+  const navBar = document.querySelector("#nav-bar");
+
+  const clickEvent = () => {
+    navBar?.classList.toggle("hidden");
+  };
+
+  const resizeEvent = () => {
+    const closeEvent = !menuBtn?.checkVisibility();
+    console.log(closeEvent);
+
+    if (closeEvent) {
+      navBar?.classList.remove("hidden");
+    }
+  };
+
+  const openEvent = () => {
+    navBar?.classList.toggle("flex-col");
+    menuBtn?.addEventListener("click", clickEvent);
+  };
+
+  const resetTheVisibilityOfNavBar = () => {
+    window?.addEventListener("resize", resizeEvent);
+  };
+
+  openEvent();
+  resetTheVisibilityOfNavBar();
+
+  // Runs on view transitions navigation
+</script>
