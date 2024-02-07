@@ -4,50 +4,54 @@ import MenuIcon from "../icons/Menu.astro";
 const navItems = [
   {
     name: "Introducción",
-    url: "#",
+    url: "",
     label: "",
   },
   {
     name: "Experiencia",
-    url: "#",
+    url: "",
     label: "",
   },
   {
     name: "Proyectos",
-    url: "#",
+    url: "",
     label: "",
   },
   {
     name: "Educación",
-    url: "#",
+    url: "",
     label: "",
   },
   {
     name: "Habilidades",
-    url: "#",
+    url: "",
     label: "",
   },
 
   {
     name: "Contacto",
-    url: "#",
+    url: "",
     label: "",
   },
 ];
+
+//class="flex sm:flex-row max-sm:flex-col rounded-full max-sm:w-full max-sm:rounded-none max-sm:text-center max-sm:py-16"
 ---
 
-<header class="fixed top-0 flex w-full justify-center mt-5 mx-auto">
+<header
+  class="fixed top-0 flex w-full justify-center mt-5 mx-auto max-sm:mt-0 z-20"
+>
   <button
     aria-label="Open Menu"
     aria-expanded="false"
     aria-controls="menu-items"
     class:list={[
-      "hamburger-menu focus-outline",
+      "hamburger-menu focus-outline z-20",
       "fixed right-0 w-10 h-10 mx-2 flex items-center justify-center sm:hidden hover:bg-cyan-500/75 rounded-full",
     ]}
     ><MenuIcon class="w-24 h-24" />
   </button>
-  <nav id="nav-bar" class="flex sm:flex-row">
+  <nav id="nav-bar" class="visible max-sm:invisible flex">
     {
       navItems.map((item) => (
         <a href={item.url} class:list={["px-2 py-2 hover:text-cyan-600"]}>
@@ -58,35 +62,42 @@ const navItems = [
   </nav>
 </header>
 
+<style>
+  @media (min-width: 640px) {
+    nav {
+      animation: nav-shadown 1s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 100px;
+    }
+
+    @keyframes nav-shadown {
+      to {
+        @apply shadow-lg ring-1 backdrop-blur bg-cyan-50/15 dark:bg-gray-800/60 ring-white/10 rounded-full;
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    #nav-bar {
+      @apply flex flex-col w-full py-16 h-screen bg-cyan-950 text-center;
+    }
+  }
+</style>
+
 <script>
   const menuBtn = document.querySelector(".hamburger-menu");
   const navBar = document.querySelector("#nav-bar");
 
   const clickEvent = () => {
-    navBar?.classList.toggle("hidden");
-  };
-
-  const resizeEvent = (event: { matches: any }) => {
-    const closeEvent = event.matches;
-    console.log(closeEvent);
-    if (closeEvent) {
-      return navBar?.classList.remove("hidden");
-    }
-    navBar?.classList.add("hidden");
+    console.log("clickEvent");
+    navBar?.classList.toggle("max-sm:invisible");
   };
 
   const openEvent = () => {
-    navBar?.classList.toggle("flex-col");
+    console.log("openEvent");
     menuBtn?.addEventListener("click", clickEvent);
   };
 
-  const resetTheVisibilityOfNavBar = () => {
-    const desktopMediaQuery = window.matchMedia("(min-width: 640px)");
-    desktopMediaQuery?.addEventListener("change", resizeEvent);
-  };
-
   openEvent();
-  resetTheVisibilityOfNavBar();
 
   // Runs on view transitions navigation
 </script>
