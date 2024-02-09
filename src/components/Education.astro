@@ -1,0 +1,37 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+import Aws from "../icons/Aws.astro";
+---
+
+<SectionContainer id="educacion">
+  <h1 class="text-2xl mb-3 flex items-center">Educación</h1>
+  <div class="flex flex-wrap space-x-5">
+    <div class="mb-6 flex flex-row">
+      <picture>
+        <img
+          class="w-26 h-24 mr-4"
+          src="https://ww2.ufps.edu.co/public/archivos/elementos_corporativos/logoufps.png"
+        />
+      </picture>
+      <div>
+        <h2 class="text-xl mb-3">Ingeniería en Sistemas</h2>
+        <p class="mb-3">Universidad Francisco de Paula Santander</p>
+        <p class="mb-3">Cúcuta, Norte de Santander</p>
+        <p class="mb-3">2019 - presente</p>
+      </div>
+    </div>
+    <div class="mb-6 flex flex-row">
+      <picture>
+        <Aws class="w-20" />
+      </picture>
+      <div class="ml-3">
+        <h2 class="text-xl mb-3">AWS Academy Cloud Foundations</h2>
+        <p class="mb-3">AWS Academy</p>
+        <a
+          href="https://www.credly.com/badges/abe33906-9c30-40d6-82ff-3208a6f8ba0f"
+          >Saber más</a
+        >
+      </div>
+    </div>
+  </div>
+</SectionContainer>
