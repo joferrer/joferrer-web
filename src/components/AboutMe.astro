@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import SectionContainer from "./SectionContainer.astro";
 import Photo from "../../public/mifoto.jpg";
 ---
@@ -29,9 +31,9 @@ import Photo from "../../public/mifoto.jpg";
       </p>
     </div>
     <picture class="flex-grow ml-10 w-max h-max">
-      <img
-        class="rounded-sm object-cover shadow-lg"
-        src="../../public/mifoto.jpg"
+      <Image
+        class="rounded-full object-cover shadow-lg"
+        src={Photo}
         alt="Una foto de Jeison Ferrer"
       />
     </picture>
