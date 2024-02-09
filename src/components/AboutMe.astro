@@ -1,0 +1,39 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+import Photo from "../../public/mifoto.jpg";
+---
+
+<SectionContainer id="aboutme">
+  <h1 class="text-2xl mb-3 flex items-center">Sobre mi</h1>
+  <div class="flex items-center">
+    <div class="max-w-lg">
+      <p class="mb-4">
+        Soy Jeison Ferrer, amante de la ciencia ficción que también disfruta
+        creando software, en especial cuando funciona bien. He realizado
+        trabajos como freelance y actualmente me encuentro en mi último semestre
+        de ingeniería de sistemas.
+      </p>
+      <p class="mb-4">
+        En la universidad participé en semilleros de investigación donde
+        colaboré y orienté a mis compañeros en de sus proyectos en la web y de
+        electrónica con Arduino. He participado en competencias de programación
+        donde desarrollé mis habilidades para la resolución de problemas y
+        conocí muchas personas talentosas.
+      </p>
+      <p class="mb-4">
+        Soy del tipo de persona que se divierte más jugando con amigos que en
+        solitario, que prefiere el silencio al ruido y caminar antes que el
+        trasporte público. Mi objetivo actualmente es adentrarme en el mundo
+        laboral de la industria del software y dar mi siguiente paso en mi vida
+        profesional.
+      </p>
+    </div>
+    <picture class="flex-grow ml-10 w-max h-max">
+      <img
+        class="rounded-sm object-cover shadow-lg"
+        src="../../public/mifoto.jpg"
+        alt="Una foto de Jeison Ferrer"
+      />
+    </picture>
+  </div>
+</SectionContainer>
